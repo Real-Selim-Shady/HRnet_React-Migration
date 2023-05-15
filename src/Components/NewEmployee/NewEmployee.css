@@ -1,0 +1,49 @@
+
+body{
+    text-align-last: center;
+}
+
+.new-employee-content {
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+.input-wrapper {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    margin-bottom: 1rem;
+    width: 99%;
+    /*border-color: #80808063;*/
+    place-items: center;
+
+}
+
+.input-wrapper label {
+font-weight: bold;
+}
+
+.input-wrapper input {
+padding: 5px;
+font-size: 1.2rem;
+width: 265px;
+border: 1px solid #ccc;
+border-radius: 4px;
+}
+
+.empty-field-message{
+    color: red;
+}
+
+/*.sign-in-sign-up-button {
+    display: block;
+    width: 100%;
+    padding: 8px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    margin-top: 1rem;
+    border-color: #5256EC;
+    background-color: #5256EC;
+    color: #fff;
+    border-radius: 5px;
+}*/

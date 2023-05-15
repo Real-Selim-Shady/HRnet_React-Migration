@@ -1,0 +1,45 @@
+.select-menu {
+    position: relative;
+
+}
+  
+.selected-option {
+    cursor: pointer;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 8px;
+    font-size: 1.2rem;
+    width: 260px;
+    height: 15px;
+}
+
+.options {
+    /*position: absolute;*/
+    top: 100%;
+    left: 0;
+    width: 275px;
+    max-height: 200px;
+    overflow-y: auto;
+    border: 1px solid #ccc;
+    border-top: none;
+    border-radius: 0 0 4px 4px;
+    background-color: #fff;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    z-index: 1;
+}
+
+.options li {
+    padding: 8px;
+    cursor: pointer;
+}
+
+.options li:hover {
+    background-color: #f5f5f5;
+}
+
+.text-selected {
+    margin-top: -5px;
+}

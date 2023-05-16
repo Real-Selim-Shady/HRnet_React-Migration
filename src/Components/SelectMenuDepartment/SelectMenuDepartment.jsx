@@ -42,21 +42,6 @@ function SelectMenuDepartment(){
 		</div>
 	);
 
-
-
-	/*const onChangeDepartmentField = (event) => {
-		dispatch(onChangeDepartment(event));
-	};
-
-	return(
-		<>
-			<select value={state} onChange={onChangeDepartmentField}>
-				{
-					data.map((opt, index) => <option key={index + "Department"}>{opt}</option>)
-				}
-			</select>
-		</>
-	);*/
 }
 
 export default SelectMenuDepartment;

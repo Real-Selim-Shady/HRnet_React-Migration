@@ -46,6 +46,7 @@ function NewEmployee(){
 			dispatch(onSaveEmployeeRef(id));
 		};
 		sendEmployeeRef();
+		customizeYourModal();
 	}, []);
 	
 
@@ -96,15 +97,32 @@ function NewEmployee(){
 	const onCityChangeField = (event) => {
 		dispatch(onChangeCity(event));
 	};
-	/*const onStateChangeField = (event) => {
-		dispatch(onChangeState(event));
-	};*/
 	const onZipCodeChangeField = (event) => {
 		dispatch(onChangeZipCode(event));
 	};
-	/*const onDepartmentChangeField = (event) => {
-		dispatch(onChangeDepartment(event));
-	};*/
+
+	const customizeYourModal = () => {
+
+		const backgroundColorValue = "";
+		const borderRadius = "";
+		const borderColor = "";
+		const closingIconBackgroundColor = "";
+		const width = "";
+		const height = "";
+		const icon = "";
+		const titleFontSize = "";
+		const textFontSize = "";
+		const titlePolice = "";
+		const textPolice = "";
+		const textLineHeight = "";
+		const titlePosition = "";
+		const textPosition = "";
+		const modalPosition = "";
+		const overlay = "";
+		const backgroundScrollable = "";
+
+
+	};
 
 	const onSubmit = async (e) => {
 		e.preventDefault();

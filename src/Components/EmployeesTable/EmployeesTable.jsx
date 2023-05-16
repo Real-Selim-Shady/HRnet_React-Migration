@@ -95,7 +95,7 @@ function EmployeesTable() {
 					value={pageSize}
 					onChange={e => setPageSize(Number(e.target.value))}
 				>
-					{[10, 25, 50].map(pageSize => (
+					{[10, 25, 50, 100].map(pageSize => (
 						<option key={pageSize} value={pageSize}>
               Show {pageSize}
 						</option>

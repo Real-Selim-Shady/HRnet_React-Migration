@@ -54,21 +54,3 @@ function SelectMenuState(){
 
 export default SelectMenuState;
 
-
-/*
-	const state = useSelector(selectStateCreation);
-	const dispatch = useDispatch();
-	const onChangeStateField = (event) => {
-		dispatch(onChangeState(event));
-	};
-
-	return(
-		<>
-			<select value={state} onChange={onChangeStateField} size={4}>
-				{
-					data.map((opt, index) => <option key={index + "State"}>{opt}</option>)
-				}
-			</select>
-		</>
-	);
-*/

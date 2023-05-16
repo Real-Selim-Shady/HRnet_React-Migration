@@ -24,6 +24,26 @@ const initialState = {
 	isToggleDVisible: false,
 	column: [],
 	records: [],
+
+	customModal: {
+		backgroundColorValue: "",
+		borderRadius: "",
+		borderColor : "",
+		closingIconBackgroundColor : "",
+		width : "",
+		height: "",
+		icon : "",
+		titleFontSize : "",
+		textFontSize : "",
+		titlePolice : "",
+		textPolice : "",
+		textLineHeight : "",
+		titlePosition : "",
+		textPosition : "",
+		modalPosition : "",
+		overlay : "",
+		backgroundScrollable : "",
+	}
 };
 
 

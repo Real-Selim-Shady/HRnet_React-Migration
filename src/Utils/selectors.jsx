@@ -20,8 +20,20 @@ export const selectIsModalOpened = (state => state?.isModalOpened);
 export const selectIsToggleSVisible = (state => state?.isToggleSVisible);
 export const selectIsToggleDVisible = (state => state?.isToggleDVisible);
 
-
-/*
-export const selectAGLoader = (state) => state?.authGuardLoading;
-export const selectPLoader = (state) => state?.profileLoading;
-*/
+export const selectBackgroundColorValue = (state => state?.customMoal?.backgroundColorValue);
+export const selectBorderRadius = (state => state?.customMoal?.borderRadius);
+export const selectBorderColor = (state => state?.customMoal?.borderColor);
+export const selectClosingIconBackgroundColor = (state => state?.customMoal?.closingIconBackgroundColor);
+export const selectWidth = (state => state?.customMoal?.width);
+export const selectHeight = (state => state?.customMoal?.height);
+export const selectIcon = (state => state?.customMoal?.icon);
+export const selectTitleFontSize = (state => state?.customMoal?.titleFontSize);
+export const selectTextFontSize = (state => state?.customMoal?.textFontSize);
+export const selectTitlePolice = (state => state?.customMoal?.titlePolice);
+export const selectTextPolice = (state => state?.customMoal?.textPolice);
+export const selectTextLineHeight = (state => state?.customMoal?.textLineHeight);
+export const selectTitlePosition = (state => state?.customMoal?.titlePosition);
+export const selectTextPosition = (state => state?.customMoal?.textPosition);
+export const selectModalPosition = (state => state?.customMoal?.modalPosition);
+export const selectOverlay = (state => state?.customMoal?.overlay);
+export const selectBackgroundScrollable = (state => state?.customMoal?.backgroundScrollable);

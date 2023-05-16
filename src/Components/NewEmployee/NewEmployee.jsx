@@ -25,9 +25,7 @@ import { onChangeStartDateToCalculate } from "./Actions";
 import { onChangeStartDateToShow } from "./Actions";
 import { onChangeStreet } from "./Actions";
 import { onChangeCity } from "./Actions";
-//import { onChangeState } from "./Actions";
 import { onChangeZipCode } from "./Actions";
-//import { onChangeDepartment } from "./Actions";
 import { updateStockedEmployees } from "./Actions";
 import { useNavigate } from "react-router-dom";
 import Modal from "../Modal/Modal";
@@ -120,6 +118,12 @@ function NewEmployee(){
 		const modalPosition = "";
 		const overlay = "";
 		const backgroundScrollable = "";
+		// const movable?
+		// other buttons?
+
+		// from here, you don't need to edit the code
+		const dispatch = useDispatch();
+
 
 
 	};

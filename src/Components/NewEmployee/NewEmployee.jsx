@@ -3,8 +3,7 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import "./NewEmployee.css";
 import { useDispatch, useSelector } from "react-redux";
-import { selectEmployeeCreation } from "../../Utils/selectors";
-import { selectFirstNameCreation } from "../../Utils/selectors";
+import { selectDateOfBirthCreationS, selectFirstNameCreation, selectStartDateCreationS } from "../../Utils/selectors";
 import { selectLastNameCreation } from "../../Utils/selectors";
 import { selectDateOfBirthCreationC } from "../../Utils/selectors";
 import { selectStartDateCreationC } from "../../Utils/selectors";
@@ -28,27 +27,38 @@ import { onChangeCity } from "./Actions";
 import { onChangeZipCode } from "./Actions";
 import { updateStockedEmployees } from "./Actions";
 import { useNavigate } from "react-router-dom";
-import Modal from "../Modal/Modal";
-import { modalIsTrueAction } from "../Modal/Action";
 import SelectMenuState from "../SelectMenuState/SelectMenuState";
 import SelectMenuDepartment from "../SelectMenuDepartment/SelectMenuDepartment";
+import { useState } from "react";
+//import Modal from "../Modal/index";
+import Modal from "custom-modal_opc_sb_v1";
 
+
+/**
+ * @description function rendering New-Employee component
+ */
 function NewEmployee(){
-	const dispatch = useDispatch();
 
+	/**
+	 * @description const for using hooks
+	 */
+	const dispatch = useDispatch();
 	const navigate = useNavigate();
 
+	/**
+	 * @description useEffet in order to add an employee reference at the load of the page
+	 */
 	useEffect(()=>{
 		const sendEmployeeRef = async () => {
 			const id = Math.random().toString(36).substr(2, 9);
 			dispatch(onSaveEmployeeRef(id));
 		};
 		sendEmployeeRef();
-		customizeYourModal();
 	}, []);
 	
-
-	const employeeCreation = useSelector(selectEmployeeCreation);
+	/**
+	 * @description const in order to get states
+	 */
 	const firstName = useSelector(selectFirstNameCreation);
 	const lastName = useSelector(selectLastNameCreation);
 	const dateOfBirth = useSelector(selectDateOfBirthCreationC);
@@ -59,7 +69,12 @@ function NewEmployee(){
 	const zipCode = useSelector(selectZipCodeCreation);
 	const department = useSelector(selectDepartmentCreation);
 	const errorSubmitSaveNew = useSelector(selectErrorSubmitSave);
+	const startDateToShow = useSelector(selectStartDateCreationS);
+	const dateOfBirthToShow = useSelector(selectDateOfBirthCreationS); 
 
+	/**
+	 * @description actions in order to change states values
+	 */
 	const onFirstNameChangeField = (event) => {
 		dispatch(onChangeFirstName(event));
 	};
@@ -98,36 +113,26 @@ function NewEmployee(){
 	const onZipCodeChangeField = (event) => {
 		dispatch(onChangeZipCode(event));
 	};
-
-	const customizeYourModal = () => {
-
-		const backgroundColorValue = "";
-		const borderRadius = "";
-		const borderColor = "";
-		const closingIconBackgroundColor = "";
-		const width = "";
-		const height = "";
-		const icon = "";
-		const titleFontSize = "";
-		const textFontSize = "";
-		const titlePolice = "";
-		const textPolice = "";
-		const textLineHeight = "";
-		const titlePosition = "";
-		const textPosition = "";
-		const modalPosition = "";
-		const overlay = "";
-		const backgroundScrollable = "";
-		// const movable?
-		// other buttons?
-
-		// from here, you don't need to edit the code
-		const dispatch = useDispatch();
-
-
-
+	const sendEmployeeRef = async () => {
+		const id = Math.random().toString(36).substr(2, 9);
+		dispatch(onSaveEmployeeRef(id));
 	};
 
+	/**
+	 * @description set the modal closing
+	 */
+	/*add these state and setter, 
+	then, add the setter condition turning to "true" as string when you want to activate the modal*/
+	const [openedModal, setOpenedModal] = useState("false");
+	const closeModal = () => {
+		setOpenedModal("false");
+	};
+
+
+	/**
+	 * @description function which saves data in stockedEmployees
+	 * and check if data are savable. The function also open the modal.
+	 */
 	const onSubmit = async (e) => {
 		e.preventDefault();
 		if (firstName == "" || 
@@ -143,108 +148,130 @@ function NewEmployee(){
 			dispatch(errorSubmitSaveNewAction());
 			return false;
 		}else{
+			sendEmployeeRef();
 			dispatch(goodSubmitSaveNewAction());
-			dispatch(updateStockedEmployees(employeeCreation));
-			dispatch(modalIsTrueAction());
+			dispatch(updateStockedEmployees(
+				firstName,
+				lastName,
+				dateOfBirthToShow,
+				startDateToShow,
+				street,
+				city,
+				state,
+				zipCode,
+				department 
+			));
+			setOpenedModal("true");
 		}
 	};
 
 	return (
-		<section className="new-employee-content">
-			<h1>
-                HRnet
-			</h1>
-			<button onClick= {()=> navigate("/EmployeesList")}>
-				View Current Employees
-			</button>
-			<h2>
-                Create Employee
-			</h2>
-			<form onSubmit={onSubmit}>
-				<div className="input-wrapper">
-					<label htmlFor="firstName">First Name</label>
-					<input type="text" name="firstName" id="firstName" value={firstName} onChange={onFirstNameChangeField} />
-					{(firstName === "" && errorSubmitSaveNew === true) && <div className="empty-field-message">Please fill the First Name field</div>}
+		<div className="new-employee-page">
+			<section className="new-employee-content">
+				<div className="header">
+					<h1 className="title">
+						HRnet
+					</h1>
+					<button onClick= {()=> navigate("/EmployeesList")}>
+						View Current Employees
+					</button>
+					<h2 className="title">
+						Create Employee
+					</h2>
 				</div>
-				<div className="input-wrapper">
-					<label htmlFor="lastName">Last Name</label>
-					<input type="text" name="lastName" id="lastName" value={lastName} onChange={onLastNameChangeField} />
-					{(lastName === "" && errorSubmitSaveNew === true) && <div className="empty-field-message">Please fill the Last Name field</div>}
-				</div>
-				<div className="input-wrapper">
-					<label htmlFor="dateOfBirth">Date of Birth</label>
-					<DatePicker 
-						selected={dateOfBirth} 
-						onChange={date => onDateOfBirthChangeField(date)}
-						dateFormat="dd/MM/yyyy"
-						maxDate={new Date()}
-						filterDate={date => date.getDay() != 6 && date.getDay() != 0}
-						showYearDropdown
-						showMonthDropdown
-						scrollableMonthYearDropdown
-					/>
-					{(dateOfBirth === "" && errorSubmitSaveNew === true) && <div className="empty-field-message">Please fill the Date of Birth field</div>}
-				</div>
-				<div className="input-wrapper">
-					<label htmlFor="startDate">Start Date</label>
-					<DatePicker 
-						selected={startDate} 
-						onChange={date => onStartDateChangeField(date)}
-						dateFormat="dd/MM/yyyy"
-						maxDate={new Date()}
-						filterDate={date => date.getDay() != 6 && date.getDay() != 0}
-						showYearDropdown
-						showMonthDropdown
-						scrollableMonthYearDropdown
-					/>
-					{(startDate === "" && errorSubmitSaveNew === true) && <div className="empty-field-message">Please fill the Start Date field</div>}
-				</div>
-				<div className="input-wrapper">
-					<label htmlFor="street">Street</label>
-					<input type="text" name="street" id="street" value={street} onChange={onStreetChangeField} />
-					{(street === "" && errorSubmitSaveNew === true) && <div className="empty-field-message">Please fill the Street field</div>}
-				</div>
-				<div className="input-wrapper">
-					<label htmlFor="city">City</label>
-					<input type="text" name="city" id="city" value={city} onChange={onCityChangeField} />
-					{(city === "" && errorSubmitSaveNew === true) && <div className="empty-field-message">Please fill the City field</div>}
-				</div>
-				{/*<div className="input-wrapper">
-					<label htmlFor="state">State1</label>
-					<input type="text" name="state" id="state" value={state} onChange={onStateChangeField} />
-					{(state === "" && errorSubmitSaveNew === true) && <div className="empty-field-message">Please fill the State field</div>}
-				</div>*/}
-				<div className="input-wrapper">
-					<label htmlFor="state">State</label>
-					<SelectMenuState />
-					{(state === "" && errorSubmitSaveNew === true) && <div className="empty-field-message">Please fill the State field</div>}
-				</div>
-				<div className="input-wrapper">
-					<label htmlFor="zipCode">Zip Code</label>
-					<input type="number" name="zipCode" id="zipCode" value={zipCode} onChange={onZipCodeChangeField} />
-					{(zipCode === "" && errorSubmitSaveNew === true) && <div className="empty-field-message">Please fill the Zip Code field</div>}
-				</div>
-				{/*<div className="input-wrapper">
-					<label htmlFor="department">Department</label>
-					<input type="text" name="department" id="department" value={department} onChange={onDepartmentChangeField} />
-					{(department === "" && errorSubmitSaveNew === true) && <div className="empty-field-message">Please fill the Department field</div>}
-				</div>*/}
-				<div className="input-wrapper">
-					<label htmlFor="department">Department</label>
-					<SelectMenuDepartment />
-					{(department === "" && errorSubmitSaveNew === true) && <div className="empty-field-message">Please fill the Department field</div>}
-				</div>
-				<button>Save</button>
-			</form>
-			<Modal />
-		</section>
+				<form onSubmit={onSubmit} className="form">
+					<div className="input-wrapper">
+						<label htmlFor="firstName">First Name</label>
+						<input type="text" name="firstName" id="firstName" value={firstName} onChange={onFirstNameChangeField} />
+						{(firstName === "" && errorSubmitSaveNew === true) && <div className="empty-field-message">Please fill the First Name field</div>}
+					</div>
+					<div className="input-wrapper">
+						<label htmlFor="lastName">Last Name</label>
+						<input type="text" name="lastName" id="lastName" value={lastName} onChange={onLastNameChangeField} />
+						{(lastName === "" && errorSubmitSaveNew === true) && <div className="empty-field-message">Please fill the Last Name field</div>}
+					</div>
+					<div className="input-wrapper">
+						<label htmlFor="dateOfBirth">Date of Birth</label>
+						<DatePicker 
+							selected={dateOfBirth} 
+							onChange={date => onDateOfBirthChangeField(date)}
+							dateFormat="dd/MM/yyyy"
+							maxDate={new Date()}
+							filterDate={date => date.getDay() != 6 && date.getDay() != 0}
+							scrollableMonthYearDropdown
+							name="dateOfBirth"
+							id="dateOfBirth"
+						/>
+						{(dateOfBirth === "" && errorSubmitSaveNew === true) && <div className="empty-field-message">Please fill the Date of Birth field</div>}
+					</div>
+					<div className="input-wrapper">
+						<label htmlFor="startDate">Start Date</label>
+						<DatePicker 
+							selected={startDate} 
+							onChange={date => onStartDateChangeField(date)}
+							dateFormat="dd/MM/yyyy"
+							maxDate={new Date()}
+							filterDate={date => date.getDay() != 6 && date.getDay() != 0}
+							scrollableMonthYearDropdown
+							name="startDate"
+							id="startDate"
+						/>
+						{(startDate === "" && errorSubmitSaveNew === true) && <div className="empty-field-message">Please fill the Start Date field</div>}
+					</div>
+					<span className="address">
+						<p>Address</p>
+						<div className="input-wrapper address-type">
+							<label htmlFor="street">Street</label>
+							<input type="text" name="street" id="street" value={street} onChange={onStreetChangeField} />
+							{(street === "" && errorSubmitSaveNew === true) && <div className="empty-field-message">Please fill the Street field</div>}
+						</div>
+						<div className="input-wrapper address-type">
+							<label htmlFor="city">City</label>
+							<input type="text" name="city" id="city" value={city} onChange={onCityChangeField} />
+							{(city === "" && errorSubmitSaveNew === true) && <div className="empty-field-message">Please fill the City field</div>}
+						</div>
+						<div className="input-wrapper address-type">
+							<label htmlFor="state">State</label>
+							<SelectMenuState />
+							{(state === "" && errorSubmitSaveNew === true) && <div className="empty-field-message">Please fill the State field</div>}
+						</div>
+						<div className="input-wrapper address-type">
+							<label htmlFor="zipCode">Zip Code</label>
+							<input type="number" name="zipCode" id="zipCode" value={zipCode} onChange={onZipCodeChangeField} />
+							{(zipCode === "" && errorSubmitSaveNew === true) && <div className="empty-field-message">Please fill the Zip Code field</div>}
+						</div>
+					</span>
+					<div className="input-wrapper department">
+						<label htmlFor="department">Department</label>
+						<SelectMenuDepartment />
+						{(department === "" && errorSubmitSaveNew === true) && <div className="empty-field-message">Please fill the Department field</div>}
+					</div>
+					<button className="save-button">Save</button>
+				</form>
+				{//add this content to add the modal
+					(openedModal === "true") && <Modal 
+						backgroundColor="" borderRadius="" borderColor="" closingIconBackgroundColor="" 
+						width="" height=""
+						fontAwesomeIconClass=""  fontAwesomeClosingIconClass="fa-solid fa-xmark"
+						customImgSrc="" customImgClass="" customImgAlt="" 
+						titleFontSize="" textFontSize="" 
+						titleFont="" textFont="" 
+						textLineHeight=""
+						titleContent="titre"
+						textContent="blabla"
+						titlePosition="" textPosition="" 
+						overlay="" 
+						modalHorizontalPosition=""
+						topSpace = "40%"
+						timer = ""
+						addBoxShadow = "yes"
+						openedModalProp = {openedModal}
+						onCloseModal= {closeModal}
+					/>}
+			</section>
+		</div>
 	);
 
 }
 
 export default NewEmployee;
-
-//faire deux save d'affilés va donner deux mêmes employeeReference,
-//il faut donc sortir du component. donc je vais faire une redirection ou laisser ici en
-//acceptant le défaut cité ici. mais je peux aussi tout simplement supprimer la référence
-//de l'employé.

@@ -1,5 +1,4 @@
 /* eslint-disable react/no-unescaped-entities */
-import "./Home.css";
 // eslint-disable-next-line no-unused-vars
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import React from "react";
@@ -19,25 +18,19 @@ function App() {
 		<Routes>
 			<Route path="/" element={
 				<div>
-					{/*<Header />*/}
 					<NewEmployee />
-					{/*<Footer />*/}
 				</div>
 			}
 			/>
 			<Route path="/EmployeesList" element={
 				<div>
-					{/*<Header />*/}
 					<EmployeesList />
-					{/*<Footer />*/}
 				</div>
 			}
 			/>
 			<Route path="/*" element={
 				<div>
-					{/*<Header />*/}
 					<Error />
-					{/*<Footer />*/}
 				</div>
 			}
 			/>

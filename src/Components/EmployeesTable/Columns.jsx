@@ -1,43 +1,48 @@
+import { sortDateByDayMonthYear } from "./SortDate";
 
+
+/**
+ * @description const managing columns title name (header),
+ * columns content (accessor), and special sorting for dates
+ */
 export const COLUMNS = [
 	{
-		Header: "Employee Reference",
-		accessor: "employeeReference"
-	},
-	{
 		Header: "First Name",
-		accessor: "firstName"
+		accessor: "firstName",
 	},
 	{
 		Header: "Last Name",
-		accessor: "lastName"
-	},
-	{
-		Header: "Date of Birth",
-		accessor: "dateOfBirthToShow"
+		accessor: "lastName",
 	},
 	{
 		Header: "Start Date",
-		accessor: "startDateToShow"
-	},
-	{
-		Header: "Street",
-		accessor: "street"
-	},
-	{
-		Header: "City",
-		accessor: "city"
-	},
-	{
-		Header: "State",
-		accessor: "state"
-	},
-	{
-		Header: "Zip Code",
-		accessor: "zipCode"
+		accessor: "startDateToShow",
+		sortType: (a, b) => sortDateByDayMonthYear(a, b, "startDateToShow"),
 	},
 	{
 		Header: "Department",
-		accessor: "department"
-	}
+		accessor: "department",
+	},
+	{
+		Header: "Date of Birth",
+		accessor: "dateOfBirthToShow",
+		sortType: (a, b) => sortDateByDayMonthYear(a, b, "dateOfBirthToShow"),
+	},
+	{
+		Header: "Street",
+		accessor: "street",
+	},
+	{
+		Header: "City",
+		accessor: "city",
+	},
+	{
+		Header: "State",
+		accessor: "state",
+	},
+	{
+		Header: "Zip Code",
+		accessor: "zipCode",
+	},
 ];
+

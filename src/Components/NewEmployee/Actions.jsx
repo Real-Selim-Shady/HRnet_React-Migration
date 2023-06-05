@@ -26,4 +26,24 @@ export const onChangeState = (event) => ({type: "onChangeState", payload: event.
 export const onChangeZipCode = (event) => ({type: "onChangeZipCode", payload: event.target.value.toString()});
 export const onChangeDepartment = (event) => ({type: "onChangeDepartment", payload: event.target.value.toString()});
 
-export const updateStockedEmployees = (employeeCreation) => ({ type: "updateStockedEmployees", payload: employeeCreation});
+export const updateStockedEmployees = (
+	firstName,
+	lastName,
+	dateOfBirthToShow,
+	startDateToShow,
+	street,
+	city,
+	state,
+	zipCode,
+	department 
+) => ({ type: "updateStockedEmployees", payload: {
+	firstName,
+	lastName,
+	dateOfBirthToShow,
+	startDateToShow,
+	street,
+	city,
+	state,
+	zipCode,
+	department }});
+

@@ -7,8 +7,15 @@ import { onToggleSActionToFalse } from "./Actions";
 import { selectIsToggleSVisible } from "../../Utils/selectors";
 import "./SelectMenuState.css";
 
+
+/**
+ * @description function rendering select feature for State (address) info
+ */
 function SelectMenuState(){
 
+	/**
+	 * @description const adding select's options
+	 */
 	const data = [
 		"Alabama","Alaska","American Samoa","Arizona","Arkansas","California","Colorado",
 		"Connecticut","Delaware","District Of Columbia","Federated States Of Micronesia",
@@ -20,15 +27,27 @@ function SelectMenuState(){
 		"Rhode Islande","South Carolina","South Dakota","Tennessee","Texas","Utah","Vermont",
 		"Virgin Islands","Virginia","Washington","West Virginia","Wisconsin","Wyoming"
 	];
-	const state = useSelector(selectStateCreation);
-	const isToggleSVisible = useSelector(selectIsToggleSVisible);
+
+	/**
+	 * @description const in order to use useDispatch hook
+	 */
 	const dispatch = useDispatch();
 
+	/**
+	 * @description const in order to get states
+	 */
+	const state = useSelector(selectStateCreation);
+	const isToggleSVisible = useSelector(selectIsToggleSVisible);
+
+
+	/**
+	 * @description actions in order to change state value and make toggle 
+	 * visible or hidden
+	 */
 	const onChangeSToggleToVisible = () => {
 		if (isToggleSVisible === true){dispatch(onToggleSActionToFalse());}else{
 			dispatch(onToggleSActionToTrue());}
 	};
-
 	const onChangeStateField = (opt) => {
 		dispatch(onChangeState(opt));
 		dispatch(onToggleSActionToFalse());

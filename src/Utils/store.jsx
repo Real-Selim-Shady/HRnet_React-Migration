@@ -2,21 +2,22 @@
 import {createStore} from "redux";
 import { produce } from "immer";
 
+/**
+ * @description Application states
+ */
 const initialState = {
-	employee: {
-		employeeReference: "",
-		firstName: "",
-		lastName:"",
-		dateOfBirthToCalculate: "",
-		dateOfBirthToShow: "",
-		startDateToCalculate: "",
-		startDateToShow: "",
-		street: "",
-		city: "",
-		state: "",
-		zipCode: "",
-		department: "",
-	},
+	employeeReference: "",
+	firstName: "",
+	lastName:"",
+	dateOfBirthToCalculate: "",
+	dateOfBirthToShow: "",
+	startDateToCalculate: "",
+	startDateToShow: "",
+	street: "",
+	city: "",
+	state: "",
+	zipCode: "",
+	department: "",
 	stockedEmployees: [],
 	errorSubmitSaveNew: false,
 	isModalOpened: false,
@@ -24,29 +25,11 @@ const initialState = {
 	isToggleDVisible: false,
 	column: [],
 	records: [],
-
-	customModal: {
-		backgroundColorValue: "",
-		borderRadius: "",
-		borderColor : "",
-		closingIconBackgroundColor : "",
-		width : "",
-		height: "",
-		icon : "",
-		titleFontSize : "",
-		textFontSize : "",
-		titlePolice : "",
-		textPolice : "",
-		textLineHeight : "",
-		titlePosition : "",
-		textPosition : "",
-		modalPosition : "",
-		overlay : "",
-		backgroundScrollable : "",
-	}
 };
 
-
+/**
+ * @description reducer in order to apply states changes when actions are called
+ */
 function reducer( state = initialState, action){
 	switch(action.type){
 	case "updateStockedEmployees":
@@ -55,55 +38,55 @@ function reducer( state = initialState, action){
 		});
 	case "onSaveEmployeeRef":
 		return produce(state, (draft) => {
-			draft.employee.employeeReference = action.payload;
+			draft.employeeReference = action.payload;
 		});
 	case "onChangeFirstName":
 		return produce(state, (draft) => {
-			draft.employee.firstName = action.payload;
+			draft.firstName = action.payload;
 		});
 	case "onChangeLastName":
 		return produce(state, (draft) => {
-			draft.employee.lastName = action.payload;
+			draft.lastName = action.payload;
 		});
 	case "onChangeDateOfBirthToCalculate":
 		return produce(state, (draft) => {
-			draft.employee.dateOfBirthToCalculate = action.payload;
+			draft.dateOfBirthToCalculate = action.payload;
 		});
 	case "onChangeDateOfBirthToShow":
 		return produce(state, (draft) => {
-			draft.employee.dateOfBirthToShow = action.payload;
+			draft.dateOfBirthToShow = action.payload;
 		});
 	case "onChangeStartDateToCalculate":
 		return produce(state, (draft) => {
-			draft.employee.startDateToCalculate = action.payload;
+			draft.startDateToCalculate = action.payload;
 		});
 	case "onChangeStartDateToShow":
 		return produce(state, (draft) => {
-			draft.employee.startDateToShow = action.payload;
+			draft.startDateToShow = action.payload;
 		});
 	case "onChangeStreet":
 		return produce(state, (draft) => {
-			draft.employee.street = action.payload;
+			draft.street = action.payload;
 		});
 	case "onChangeCity":
 		return produce(state, (draft) => {
-			draft.employee.city = action.payload;
+			draft.city = action.payload;
 		});
 	case "onChangeState":
 		return produce(state, (draft) => {
-			draft.employee.state = action.payload;
+			draft.state = action.payload;
 		});
 	case "onChangeZipCode":
 		return produce(state, (draft) => {
-			draft.employee.zipCode = action.payload;
+			draft.zipCode = action.payload;
 		});
 	case "onChangeDepartment":
 		return produce(state, (draft) => {
-			draft.employee.department = action.payload;
+			draft.department = action.payload;
 		});
 	case "onChangeStockedEmployees":
 		return produce(state, (draft) => {
-			draft.employee.stockedEmployees = action.payload;
+			draft.stockedEmployees = action.payload;
 		});
 	case "errorSubmitSaveNewAction":
 		return produce(state, (draft) => {

@@ -7,19 +7,35 @@ import { onToggleDActionToFalse } from "./Actions";
 import { selectIsToggleDVisible } from "../../Utils/selectors";
 import "./SelectMenuDepartment.css";
 
+/**
+ * @description function rendering select feature for department info
+ */
 function SelectMenuDepartment(){
 
+	/**
+	 * @description const adding select's options
+	 */
 	const data = ["Engineering","Human Ressources","Legal","Marketing","Sales"];
-	const department = useSelector(selectDepartmentCreation);
+
+	/**
+	 * @description const in order to use useDispatch hook
+	 */
 	const dispatch = useDispatch();
 
+	/**
+	 * @description const in order to get states
+	 */
+	const department = useSelector(selectDepartmentCreation);
 	const isToggleDVisible = useSelector(selectIsToggleDVisible);
 
+	/**
+	 * @description actions in order to change state value and make toggle 
+	 * visible or hidden
+	 */
 	const onChangeToggleDToVisible = () => {
 		if (isToggleDVisible === true){dispatch(onToggleDActionToFalse());}else{
 			dispatch(onToggleDActionToTrue());}
 	};
-
 	const onChangeDepartmentField = (opt2) => {
 		dispatch(onChangeDepartment(opt2));
 		dispatch(onToggleDActionToFalse());

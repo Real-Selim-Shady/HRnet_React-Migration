@@ -17,31 +17,31 @@ const closeModal = () => {
 };
 
 //exemple of opening condition
-<button onClick={() => setOpenedModal("true")}>open modal</button>
+`<button onClick={() => setOpenedModal("true")}>open modal</button>`
 
 
 ## Add the modal component
 
 {//add this content to add the modal
-		(openedModal === "true") && <Modal 
-		backgroundColor="" borderRadius="" borderColor="" closingIconBackgroundColor="" 
-		width="" height=""
-		fontAwesomeIconClass=""  fontAwesomeClosingIconClass=""
-		customImgSrc="" customImgClass="" customImgAlt="" 
-		titleFontSize="" textFontSize="" 
-		titleFont="" textFont="" 
-		textLineHeight=""
-		titleContent="titre"
-		textContent="blabla blablabla blou blou blou bla ble"
-		titlePosition="" textPosition="" 
-		overlay="" 
-		modalHorizontalPosition="center"
-		topSpace = "110%"
-		timer = ""
-		addBoxShadow = ""
-		openedModalProp = {openedModal}
-		onCloseModal= {closeModal}
-	/>}
+    (openedModal === "true") && <Modal 
+    backgroundColor="" borderRadius="" borderColor="" closingIconBackgroundColor="" 
+    width="" height=""
+    fontAwesomeIconClass=""  fontAwesomeClosingIconClass=""
+    customImgSrc="" customImgClass="" customImgAlt="" 
+    titleFontSize="" textFontSize="" 
+    titleFont="" textFont="" 
+    textLineHeight=""
+    titleContent="titre"
+    textContent="blabla blablabla blou blou blou bla ble"
+    titlePosition="" textPosition="" 
+    overlay="" 
+    modalHorizontalPosition="center"
+    topSpace = "110%"
+    timer = ""
+    addBoxShadow = ""
+    openedModalProp = {openedModal}
+    onCloseModal= {closeModal}
+/>}
 
 
 ## Customize your Modal by changing the props value

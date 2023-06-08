@@ -169,13 +169,14 @@ function NewEmployee(){
 		<div className="new-employee-page">
 			<section className="new-employee-content">
 				<div className="header">
-					<h1 className="title">
+					<h1 className="title1
+					">
 						HRnet
 					</h1>
 					<button onClick= {()=> navigate("/EmployeesList")}>
 						View Current Employees
 					</button>
-					<h2 className="title">
+					<h2 className="title2">
 						Create Employee
 					</h2>
 				</div>
@@ -218,29 +219,29 @@ function NewEmployee(){
 						/>
 						{(startDate === "" && errorSubmitSaveNew === true) && <div className="empty-field-message">Please fill the Start Date field</div>}
 					</div>
-					<span className="address">
-						<p>Address</p>
-						<div className="input-wrapper address-type">
-							<label htmlFor="street">Street</label>
-							<input type="text" name="street" id="street" value={street} onChange={onStreetChangeField} />
-							{(street === "" && errorSubmitSaveNew === true) && <div className="empty-field-message">Please fill the Street field</div>}
-						</div>
-						<div className="input-wrapper address-type">
-							<label htmlFor="city">City</label>
-							<input type="text" name="city" id="city" value={city} onChange={onCityChangeField} />
-							{(city === "" && errorSubmitSaveNew === true) && <div className="empty-field-message">Please fill the City field</div>}
-						</div>
-						<div className="input-wrapper address-type">
-							<label htmlFor="state">State</label>
-							<SelectMenuState />
-							{(state === "" && errorSubmitSaveNew === true) && <div className="empty-field-message">Please fill the State field</div>}
-						</div>
-						<div className="input-wrapper address-type">
-							<label htmlFor="zipCode">Zip Code</label>
-							<input type="number" name="zipCode" id="zipCode" value={zipCode} onChange={onZipCodeChangeField} />
-							{(zipCode === "" && errorSubmitSaveNew === true) && <div className="empty-field-message">Please fill the Zip Code field</div>}
-						</div>
-					</span>
+					{/*<span className="address">*/}
+					<p>Address</p>
+					<div className="input-wrapper address-type">
+						<label htmlFor="street">Street</label>
+						<input type="text" name="street" id="street" value={street} onChange={onStreetChangeField} />
+						{(street === "" && errorSubmitSaveNew === true) && <div className="empty-field-message">Please fill the Street field</div>}
+					</div>
+					<div className="input-wrapper address-type">
+						<label htmlFor="city">City</label>
+						<input type="text" name="city" id="city" value={city} onChange={onCityChangeField} />
+						{(city === "" && errorSubmitSaveNew === true) && <div className="empty-field-message">Please fill the City field</div>}
+					</div>
+					<div className="input-wrapper address-type">
+						<label htmlFor="state">State</label>
+						<SelectMenuState />
+						{(state === "" && errorSubmitSaveNew === true) && <div className="empty-field-message">Please fill the State field</div>}
+					</div>
+					<div className="input-wrapper address-type">
+						<label htmlFor="zipCode">Zip Code</label>
+						<input type="number" name="zipCode" id="zipCode" value={zipCode} onChange={onZipCodeChangeField} />
+						{(zipCode === "" && errorSubmitSaveNew === true) && <div className="empty-field-message">Please fill the Zip Code field</div>}
+					</div>
+					{/*</span>*/}
 					<div className="input-wrapper department">
 						<label htmlFor="department">Department</label>
 						<SelectMenuDepartment />

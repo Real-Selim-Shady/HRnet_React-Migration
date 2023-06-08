@@ -4,6 +4,7 @@
     padding-top: 25px;
     background-color: white;
     width: 90%;
+
 }
 
 .input-wrapper {
@@ -11,26 +12,23 @@
     flex-direction: column;
     text-align: left;
     margin-bottom: 1rem;
-    width: 99%;
     place-items: center;
     text-align-last: center;
-    font-family: 'Ubuntu', sans-serif;
     font-weight: bolder;
 }
 
 .input-wrapper label {
     font-weight: bold;
-    font-family: 'Ubuntu', sans-serif;
     font-weight: bolder;
 }
 
 .input-wrapper input {
-padding: 5px;
-font-size: 1.2rem;
-width: 265px;
-border: 1px solid #ccc;
-border-radius: 4px;
-font-family: 'Ubuntu', sans-serif;
+    padding: 5px;
+    font-size: 1.2rem;
+    width: 265px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-family: 'Ubuntu', sans-serif;
 }
 
 .empty-field-message{
@@ -111,11 +109,16 @@ font-family: 'Ubuntu', sans-serif;
     place-content: center;
 }
 
-.title{
-    /*color: #32be3f;*/
+.title1{
     color: #1a5f32;
-    font-family: 'Ubuntu', sans-serif;
+    font-size: 25px;
 }
+
+.title2{
+    color: #1a5f32;
+    font-size: 20px;
+}
+
 
 .department{
     padding-top: 25px;
@@ -124,12 +127,10 @@ font-family: 'Ubuntu', sans-serif;
 .address {
     display: flex;
     flex-direction: column;
-    font-family: 'Ubuntu', sans-serif;
     font-weight: bolder;
 }
 
 .address-type label{
-    /*color: #32be3f;*/
     color: #1a5f32;
     font-style: oblique;
 }
@@ -159,4 +160,5 @@ font-family: 'Ubuntu', sans-serif;
     min-height: 100%;
     position: absolute;
     place-content: center;
+    font-family: 'Ubuntu', sans-serif;
 }

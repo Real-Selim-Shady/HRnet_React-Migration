@@ -17,11 +17,13 @@ const closeModal = () => {
 };
 
 //exemple of opening condition
-`<button onClick={() => setOpenedModal("true")}>open modal</button>`
-
+```
+<button onClick={() => setOpenedModal("true")}>open modal</button>
+```
 
 ## Add the modal component
 
+```
 {//add this content to add the modal
     (openedModal === "true") && <Modal 
     backgroundColor="" borderRadius="" borderColor="" closingIconBackgroundColor="" 
@@ -31,8 +33,8 @@ const closeModal = () => {
     titleFontSize="" textFontSize="" 
     titleFont="" textFont="" 
     textLineHeight=""
-    titleContent="titre"
-    textContent="blabla blablabla blou blou blou bla ble"
+    titleContent="title content"
+    textContent="text content"
     titlePosition="" textPosition="" 
     overlay="" 
     modalHorizontalPosition="center"
@@ -42,6 +44,8 @@ const closeModal = () => {
     openedModalProp = {openedModal}
     onCloseModal= {closeModal}
 />}
+```
+
 
 
 ## Customize your Modal by changing the props value

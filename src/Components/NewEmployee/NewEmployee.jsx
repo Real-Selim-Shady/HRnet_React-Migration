@@ -30,7 +30,6 @@ import { useNavigate } from "react-router-dom";
 import SelectMenuState from "../SelectMenuState/SelectMenuState";
 import SelectMenuDepartment from "../SelectMenuDepartment/SelectMenuDepartment";
 import { useState } from "react";
-//import Modal from "../Modal/index";
 import Modal from "custom-modal_opc_sb_v1";
 
 

@@ -218,7 +218,6 @@ function NewEmployee(){
 						/>
 						{(startDate === "" && errorSubmitSaveNew === true) && <div className="empty-field-message">Please fill the Start Date field</div>}
 					</div>
-					{/*<span className="address">*/}
 					<p>Address</p>
 					<div className="input-wrapper address-type">
 						<label htmlFor="street">Street</label>
@@ -240,7 +239,6 @@ function NewEmployee(){
 						<input type="number" name="zipCode" id="zipCode" value={zipCode} onChange={onZipCodeChangeField} />
 						{(zipCode === "" && errorSubmitSaveNew === true) && <div className="empty-field-message">Please fill the Zip Code field</div>}
 					</div>
-					{/*</span>*/}
 					<div className="input-wrapper department">
 						<label htmlFor="department">Department</label>
 						<SelectMenuDepartment />

@@ -256,7 +256,7 @@ function NewEmployee(){
 						titleFont="" textFont="" 
 						textLineHeight=""
 						titleContent="titre"
-						textContent="blabla"
+						textContent="texte"
 						titlePosition="" textPosition="" 
 						overlay="" 
 						modalHorizontalPosition=""

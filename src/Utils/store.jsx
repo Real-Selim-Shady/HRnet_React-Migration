@@ -127,7 +127,7 @@ function reducer( state = initialState, action){
 
 export const store = createStore(reducer);
 
-/*store.subscribe(() => {
+store.subscribe(() => {
 	console.log(store.getState());
-});*/
+});
 

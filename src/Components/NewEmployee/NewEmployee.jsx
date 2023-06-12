@@ -197,7 +197,6 @@ function NewEmployee(){
 							onChange={date => onDateOfBirthChangeField(date)}
 							dateFormat="dd/MM/yyyy"
 							maxDate={new Date()}
-							filterDate={date => date.getDay() != 6 && date.getDay() != 0}
 							scrollableMonthYearDropdown
 							name="dateOfBirth"
 							id="dateOfBirth"
@@ -248,9 +247,9 @@ function NewEmployee(){
 				</form>
 				{//add this content to add the modal
 					(openedModal === "true") && <Modal 
-						backgroundColor="" borderRadius="" borderColor="" closingIconBackgroundColor="" 
+						backgroundColor="orange" borderRadius="" borderColor="" closingIconBackgroundColor="blue" 
 						width="" height=""
-						fontAwesomeIconClass=""  fontAwesomeClosingIconClass="fa-solid fa-xmark"
+						fontAwesomeIconClass=""  fontAwesomeClosingIconClass=""
 						customImgSrc="" customImgClass="" customImgAlt="" 
 						titleFontSize="" textFontSize="" 
 						titleFont="" textFont="" 
@@ -258,10 +257,10 @@ function NewEmployee(){
 						titleContent="titre"
 						textContent="texte"
 						titlePosition="" textPosition="" 
-						overlay="" 
+						overlay="no" 
 						modalHorizontalPosition=""
 						topSpace = "40%"
-						timer = ""
+						timer = "15"
 						addBoxShadow = "yes"
 						openedModalProp = {openedModal}
 						onCloseModal= {closeModal}

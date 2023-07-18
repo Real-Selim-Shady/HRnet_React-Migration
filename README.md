@@ -19,6 +19,8 @@ Install all needed dependancies:
 - npm install immer
 - npm install react-table
 - npm install react-datepicker
+- npm install date-fns
+- npm install custom-modal_opc_sb_v1
 
 # Launch project
 
